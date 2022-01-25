@@ -57,17 +57,12 @@ oppgave_1 <- ggplot(df,aes(x=Date, y=Globe1))+
 
 
 oppgave_1 +
-  geom_text(aes(label="UAH Satelittbasert temperatur av global (lower atmosfære)", x=as.Date("1988-01-01"), y=0.6))+
+  geom_text(aes(label="UAH Satelittbasert temperatur av global lower atmosfærisk nivå", x=as.Date("1988-01-01"), y=0.6))+
   geom_segment(aes(x=as.Date("2006-01-01"),y=-0.4, xend=as.Date("2007-11-01"),yend=-0.1)) +
-  geom_text(aes(label="Rullende gjennomsnit temperatur, 13 måneder snitt", x=as.Date("2006-01-01"),y=-0.43))+
+  geom_text(aes(label="Rullende snitt temperatur, 13 måneder snitt", x=as.Date("2006-01-01"),y=-0.43))+
   geom_curve(aes(x=as.Date("2019-01-01"),y=-0.3, xend=as.Date("2021-12-01"),yend=0.21)) +
   geom_text(aes(label="Desember 2021: +0.21 grader C", x=as.Date("2016-12-01"),y=-0.31))
   
-
-
-
-
-
 
 #Oppgave 2
 
