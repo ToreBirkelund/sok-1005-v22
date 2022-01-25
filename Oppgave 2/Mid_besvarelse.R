@@ -1,8 +1,8 @@
-
 #pakker
 library(jsonlite)
 library(tidyverse)
 library(ggplot2)
+library(ggrepel)
 
 # henter info fra nettsiden
 nyt_data <- "https://static01.nyt.com/newsgraphics/2021/12/20/us-coronavirus-deaths-2021/ff0adde21623e111d8ce103fedecf7ffc7906264/scatter.json"
@@ -13,7 +13,7 @@ import <- fromJSON(nyt_data)
 # mekke graf
 graf <- ggplot(import, aes(x=fully_vaccinated_pct_of_pop, y= deaths_per_100k)) +
   geom_point(size=2, alpha=0.25) +
-  geom_text(label=import$name, nudge_y=0.30, col=factor("dark green")) +
+  geom_text_repel(label=import$name, nudge_y=0.30, col=factor("dark green")) +
   scale_x_continuous(labels = scales::percent_format(accuracy = 1), 
                      breaks=c(0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80), 
                      limits = c(0.45,0.80)) +
