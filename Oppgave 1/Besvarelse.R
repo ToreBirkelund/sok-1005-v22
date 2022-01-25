@@ -4,6 +4,7 @@ library(ggplot2)
 library(zoo)
 library(tidyverse)
 library(dplyr)
+library(scales)
 
 #Henter Datasettene.
 #Lower Troposphere
@@ -41,14 +42,32 @@ df <- df %>%
 
 #Oppgave1
 
-ggplot(df,aes(x=Date, y=Globe1, fill="colour"))+
+oppgave_1 <- ggplot(df,aes(x=Date, y=Globe1))+
   geom_line(col="Blue")+
   geom_point(shape = 21, colour = "blue", fill = "white", size = 1, stroke = 1)+
   geom_hline(yintercept=0,col="Gray",size=1)+
   geom_line(aes(y=zoo::rollmean(Globe1, 13, fill=NA)), col="red",size=1.3)+
+  theme_bw()+
+  scale_x_date(breaks=date_breaks("2 years"),
+               labels=date_format("%Y"))+
+  scale_y_continuous(breaks=seq(-0.8,0.8,0.1))+
   xlab("År") +
   ylab("Temperaturavvik fra gjennomsnittet for perioden 1991-2020 (celsius)") +
   ggtitle("Siste globale gjennomsnittlige troposfæriske temperaturer. Rullende gjennomsnitt.")
+
+
+oppgave_1 +
+  geom_text(aes(label="UAH Satelittbasert temperatur av global (lower atmosfære)", x=as.Date("1988-01-01"), y=0.6))+
+  geom_segment(aes(x=as.Date("2006-01-01"),y=-0.4, xend=as.Date("2007-11-01"),yend=-0.1)) +
+  geom_text(aes(label="Rullende gjennomsnit temperatur, 13 måneder snitt", x=as.Date("2006-01-01"),y=-0.43))+
+  geom_curve(aes(x=as.Date("2019-01-01"),y=-0.3, xend=as.Date("2021-12-01"),yend=0.21)) +
+  geom_text(aes(label="Desember 2021: +0.21 grader C", x=as.Date("2016-12-01"),y=-0.31))
+  
+
+
+
+
+
 
 #Oppgave 2
 
