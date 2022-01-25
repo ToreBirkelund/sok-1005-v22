@@ -48,7 +48,7 @@ ggplot(df,aes(x=Date, y=Globe1, fill="colour"))+
   geom_line(aes(y=zoo::rollmean(Globe1, 13, fill=NA)), col="red",size=1.3)+
   xlab("År") +
   ylab("Temperaturavvik fra gjennomsnittet for perioden 1991-2020 (celsius)") +
-  ggtitle("Siste Globale Gjennomsnittlige Troposfæriske Temperaturer. Rullende Gjennomsnitt.")
+  ggtitle("Siste globale gjennomsnittlige troposfæriske temperaturer. Rullende gjennomsnitt.")
 
 #Oppgave 2
 
@@ -61,4 +61,4 @@ df %>% select(Date, NoPol1, NoPol2, NoPol3, NoPol4, Avg) %>%
                      values = c("green", "blue", "red", "orange", "black")) +
   xlab("År") +
   ylab("Temperaturavvik fra gjennomsnittet for perioden 1979-2020 (celsius)") +
-  ggtitle("Siste Troposfæriske Temperaturer, 60-90 grader nord")
+  ggtitle("Siste atmosfæriske temperaturer, 60-90 grader nord")
