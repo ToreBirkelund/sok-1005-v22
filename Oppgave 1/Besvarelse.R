@@ -56,7 +56,7 @@ df %>% select(Date, NoPol1, NoPol2, NoPol3, NoPol4, Avg) %>%
   pivot_longer(-Date, names_to = "Lokasjon", values_to = "Temperature") %>%
   ggplot(aes(x=Date, y=Temperature, col=Lokasjon)) + 
   geom_line() +
-  scale_color_manual(name="Tropofærisk nivå", 
+  scale_color_manual(name="Atmosfærisk nivå", 
                      labels=c("Gjennomsnitt","Lower","Mid","Strato","Tropo"), 
                      values = c("green", "blue", "red", "orange", "black")) +
   xlab("År") +
