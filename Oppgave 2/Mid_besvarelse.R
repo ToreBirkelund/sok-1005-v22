@@ -4,7 +4,7 @@ library(tidyverse)
 library(ggplot2)
 library(ggrepel)
 
-# henter info fra nettsiden
+# Henter info fra nettsiden
 nyt_data <- "https://static01.nyt.com/newsgraphics/2021/12/20/us-coronavirus-deaths-2021/ff0adde21623e111d8ce103fedecf7ffc7906264/scatter.json"
 
 # omdanner til lesbar format.
